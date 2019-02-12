@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="frameworks/bootstrap.min.css">   
+    <link rel="stylesheet" href="frameworks/fontawesome.min.css">   
+    <link rel="stylesheet" href="style.css">
+    <script src="frameworks/jquery-3.3.1.min.js"></script>    
+    <script src="script.js"></script>    
+    <script src="frameworks/bootstrap.js"></script> 
+    <div class="page-header">
+        <h1></h1>
+    </div>
+</head>
+<body>	
+	<meta charset="utf-8">
+        <div class="modal fade" id="miModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document" align="center">
+                        <div class="modal-content">
+                                <div class="modal-header" align="center" style="background-color: #fc5d5d"  ><font face="Anton" color=white size="4px"> 10 repeated Words!</font>       
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                        </button>
+                                </div >
+                        <div class="container">
+                                <label id="top"></label>
+                        </div>
+                </div>
+        </div>
+        </div>
+        <div class="esp jumbotron row">
+                <div class="col-12"> 
+                        <form action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
+                                <input type="text" name="url" class="form-control"  placeholder="Type the URL(page in spanish)">
+                                <button type="submit" class="btnX icono fa fa-search" onclick="$('.ver_top').hide();">Obtain source code</button>
+                        </form>
+                        <button class="btnY limpiar_codigo">Clear code</button><button class="btnY ver_top" data-toggle="modal" data-target="#miModal">See the Top 10 repeated Words!</button>  
+                </div>
+        </div>
+        <p id="texto">
+        <?php
+        function display_sourcecode($url){
+                $lineas = file($url);
+                $output = "";
+                foreach ($lineas as $line_num => $linea) { 
+                        $output.= htmlspecialchars($linea);
+                }
+        return $output;
+        }
+        $url = $_POST['url'];
+        echo display_sourcecode($url);
+        ?>
+        </p>
+        <br>
+        <footer>
+                <p>© 2019<a style="color:#00231a; font-style:bold; text-decoration:none;" > <b><i>Big Data</i></b></a>, Team 3     
+                <a style="color:#00231a; font-style:bold; text-decoration:none;" > <b><i>Project: </i> </b></a></p>
+        </footer>
+</body>
+</html>
