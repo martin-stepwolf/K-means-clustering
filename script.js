@@ -1,5 +1,7 @@
 ﻿var points = [];
 var random = [];
+var pointsColor= []
+
 function Add_point(){
     points.push([parseInt($("#value-x").val()) ,parseInt($("#value-y").val())]);
     Grafica(points, random);
@@ -15,7 +17,8 @@ $(document).ready(function(){
     Grafica();
     $("#value-x").val("0");
     $("#value-y").val("0");
-});function Grafica(points, random){
+});
+function Grafica(points, random){
   Highcharts.chart('container', {
       chart: {
         type: 'scatter',
@@ -84,4 +87,15 @@ $(document).ready(function(){
       },]
     });
   }
-  
+  function Grafica_color(clusters){
+    pointsColor= []
+    for(var a=0; a<clusters ;a++){
+    pointsColor.push({
+      name: "Cluster " +(a+1),
+      color: 'rgba(0, 0, 255, .8)',
+      data: points
+    })
+  }
+  console.log(pointsColor);
+
+  }
