@@ -19,7 +19,7 @@ $(document).ready(function(){
     $("#value-y").val("0");
 });
 function Grafica(points, random){
-  Highcharts.chart('container', {
+  Highcharts.chart('grafica', {
       chart: {
         type: 'scatter',
         zoomType: 'xy'
