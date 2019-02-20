@@ -11,6 +11,7 @@
     <script src="frameworks/jquery-3.3.1.min.js"></script>    
     <script src="script.js"></script>    
     <script src="frameworks/bootstrap.js"></script> 
+    <script src="frameworks/highcharts.js"></script>
     <div class="page-header">
         <h1></h1>
     </div>
@@ -52,81 +53,7 @@
                         <button class="btnY do_alg" onclick="Add_random()">Do algorithm</button><button class="btnY ver_top" data-toggle="modal" data-target="#miModal">Modal</button>  
                 </div>
         </div>
-        <script src="highcharts.js"></script>
 <div id="container" style="min-width: 310px; height: 400px; max-width: 800px; margin: 0 auto"></div>
-<script >
-  function Grafica(points, random){
-Highcharts.chart('container', {
-    chart: {
-      type: 'scatter',
-      zoomType: 'xy'
-    },
-    title: {
-      text: 'Table points'
-    },
-    xAxis: {
-      title: {
-        enabled: true,
-        text: 'Grades'
-      },
-      startOnTick: true,
-      endOnTick: true,
-      showLastLabel: true
-    },
-    yAxis: {
-      title: {
-        text: 'Time'
-      }
-    },
-    legend: {
-      layout: 'vertical',
-      align: 'left',
-      verticalAlign: 'top',
-      x: 100,
-      y: 60,
-      floating: true,
-      backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF',
-      borderWidth: 1
-    },
-    plotOptions: {
-      scatter: {
-        marker: {
-          radius: 5,
-          states: {
-            hover: {
-              enabled: true,
-              lineColor: 'rgb(100,100,100)'
-            }
-          }
-        },
-        states: {
-          hover: {
-            marker: {
-              enabled: false
-            }
-          }
-        },
-        tooltip: {
-          headerFormat: '<b>{series.name}</b><br>',
-          pointFormat: '{point.x} grade, {point.y} minutes'
-        }
-      }
-    },
-    series: [{
-      name: '',
-      color: 'rgba(0, 0, 255, .8)',
-      data: points
-    },
-    {
-      name: 'Clusters',
-      color: 'rgba(0, 255, 0, .8)',
-      data: random
-    },]
-  });
-}
-</script>  
-        <p id="texto">
-        </p>
         <br>
         <footer>
                 <p>© 2019<a style="color:#00231a; font-style:bold; text-decoration:none;" > <b><i>Big Data</i></b></a>, Team 3     
