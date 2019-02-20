@@ -15,7 +15,8 @@ function Add_random(){
   random = [];
   random.push([Math.round(Math.random()*100) ,Math.round(Math.random()*60)]);
   random.push([Math.round(Math.random()*100) ,Math.round(Math.random()*60)]);
-Grafica(points, random);
+//Grafica(points, random);
+Grafica2();
 }
 
 $(document).ready(function(){
@@ -98,7 +99,7 @@ function Grafica(points, random){
     var pointsColor= []
     pointsColor.push({
       name: 'Clusters-points',
-      color: 'rgba(255, 255, 255, .8)',
+      color: 'rgba(0, 0, 0, 1)',
       data: random
     });
     for(var a=0; a<clusters ;a++){
@@ -111,3 +112,68 @@ function Grafica(points, random){
   return pointsColor;
   }
 
+  function Grafica2(){
+    Highcharts.chart('grafica', {
+        chart: {
+          type: 'scatter',
+          zoomType: 'xy'
+        },
+        title: {
+          text: 'Table points'
+        },
+        xAxis: {
+          title: {
+            enabled: true,
+            text: 'Grades'
+          },
+          startOnTick: true,
+          endOnTick: true,
+          showLastLabel: true
+        },
+        yAxis: {
+          title: {
+            text: 'Time'
+          }
+        },
+        legend: {
+          layout: 'vertical',
+          align: 'left',
+          verticalAlign: 'top',
+          x: 100,
+          y: 60,
+          floating: true,
+          backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF',
+          borderWidth: 1
+        },
+        plotOptions: {
+          scatter: {
+            marker: {
+              radius: 5,
+              states: {
+                hover: {
+                  enabled: true,
+                  lineColor: 'rgb(100,100,100)'
+                }
+              }
+            },
+            states: {
+              hover: {
+                marker: {
+                  enabled: false
+                }
+              }
+            },
+            tooltip: {
+              headerFormat: '<b>{series.name}</b><br>',
+              pointFormat: '{point.x} grade, {point.y} minutes'
+            }
+          }
+        },
+        series: [Grafica_color(cluster_values.length)[0],
+        Grafica_color(cluster_values.length)[1],
+        Grafica_color(cluster_values.length)[2],
+        Grafica_color(cluster_values.length)[3],
+      ]
+      });
+    }
+  
