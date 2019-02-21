@@ -33,7 +33,7 @@ $(document).ready(function(){
         var rand = [];
         Grafica(data);
 
-        alert(data);
+        
     });
 
     function parseCSVData(csvFile){
@@ -51,7 +51,7 @@ $(document).ready(function(){
             if(fields.length == 2){//skip invalid lines
               
               var value = parseFloat(fields[0]);
-              data.push([value])
+              data.unshift([value])
             }
         }
 
