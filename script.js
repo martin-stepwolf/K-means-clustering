@@ -13,19 +13,16 @@ function Add_point(){
 }
 
 function Add_random(){
-  random = [];
-  random.push([Math.round(Math.random()*100) ,Math.round(Math.random()*60)]);
-  random.push([Math.round(Math.random()*100) ,Math.round(Math.random()*60)]);
-//Grafica(points, random);
-Grafica2();
-  var rand = $("#value-point").val();
+  var rando = $("#value-point").val();
     var that = 0;
-    random = [rand];
+    random = [rando];
     alert("La cantidad de tu random es : " + random);
-	for(var i = 0; i<rand; i++){
+	for(var i = 0; i<rando; i++){
 	random.push([Math.round(Math.random()*100) ,Math.round(Math.random()*60)]);
 	}
+
 Grafica(points, random);
+
 //Grafica2();
 }
 
@@ -37,10 +34,10 @@ $(document).ready(function(){
 
 
 
-    $.get('Quiz 1 grades.csv', function(csvFile){
-        var data = parseCSVData(csvFile);
+   $.get('Quiz 1 grades.csv', function(csvFile){
+        points= parseCSVData(csvFile);
         var rand = [];
-        Grafica(data);
+        Grafica(points);
 
         
     });
