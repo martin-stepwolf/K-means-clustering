@@ -1,6 +1,6 @@
 ﻿var points = [];
 var random = [];
-var cluster_values = [[[10,23],[12,60]],[[19,2],[12,43]],[[12,53],[8,5]]];//ejemplo
+var cluster_values = [[[10,23],[12,60]],[[19,2],[12,43]],[[12,53],[8,5]],[[30,60],[40,25]]];//ejemplo
 var clusterColors = ['rgba(255, 0, 0, .8)','rgba(0, 255, 0, .8)','rgba(0, 0, 255, .8)','rgba(255, 255, 0, .8)','rgba(255, 0, 255, .8)',
 'rgba(0, 255, 255, .8)','rgba(0, 125, 200, .8)','rgba(255, 125, 125, .8)','rgba(125, 125, 255, .8)','rgba(255, 125, 255, .8)'];
 clusterColors.sort(function() {return Math.random() - 0.5});
@@ -16,7 +16,6 @@ function Add_random(){
   var rando = $("#value-point").val();
     var that = 0;
     random = [rando];
-    alert("La cantidad de tu random es : " + random);
 	for(var i = 0; i<rando; i++){
 	random.push([Math.round(Math.random()*100) ,Math.round(Math.random()*60)]);
 	}
@@ -31,15 +30,10 @@ $(document).ready(function(){
     $("#value-x").val("0");
     $("#value-y").val("0");
 
-
-
-
    $.get('Quiz 1 grades.csv', function(csvFile){
         points= parseCSVData(csvFile);
         var rand = [];
         Grafica(points);
-
-        
     });
 
     function parseCSVData(csvFile){
@@ -50,7 +44,6 @@ $(document).ready(function(){
       //cut CSV data into lines
       var lines = csvFile.split("\n");
 
-
       $.each(lines, function(lineNumber,line){
         if(lineNumber !=0 ){//skip header line
             var fields = line.split(",");
@@ -60,19 +53,10 @@ $(document).ready(function(){
               data.unshift([value])
             }
         }
-
       });
-
       //reverse arry since Higcharts expects the data to be sorted in ascending order
       return data.reverse();
-
     }
-
-
-
-
-
-
 });
 
 function Grafica(points, random){
@@ -219,14 +203,6 @@ function Grafica(points, random){
             }
           }
         },
-        series: [Grafica_color(cluster_values.length)[0],
-        Grafica_color(cluster_values.length)[1],
-        Grafica_color(cluster_values.length)[2],
-        Grafica_color(cluster_values.length)[3],
-      ]
+        series: Grafica_color(cluster_values.length)
       });
     }
-  
-
-
-
