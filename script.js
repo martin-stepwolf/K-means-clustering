@@ -18,6 +18,15 @@ function Add_random(){
   random.push([Math.round(Math.random()*100) ,Math.round(Math.random()*60)]);
 //Grafica(points, random);
 Grafica2();
+  var rand = $("#value-point").val();
+    var that = 0;
+    random = [rand];
+    alert("La cantidad de tu random es : " + random);
+	for(var i = 0; i<rand; i++){
+	random.push([Math.round(Math.random()*100) ,Math.round(Math.random()*60)]);
+	}
+Grafica(points, random);
+//Grafica2();
 }
 
 $(document).ready(function(){
