@@ -8,7 +8,8 @@ clusterColors.sort(function() {return Math.random() - 0.5});
 function Add_point(){
     points.push([parseInt($("#value-x").val()) ,parseInt($("#value-y").val())]);
     Grafica(points, random);
-console.log(points);    
+    $("#texto").text(points);
+    console.log(points);    
 }
 
 function Add_random(){
@@ -23,6 +24,49 @@ $(document).ready(function(){
     Grafica();
     $("#value-x").val("0");
     $("#value-y").val("0");
+
+
+
+
+    $.get('Quiz 1 grades.csv', function(csvFile){
+        var data = parseCSVData(csvFile);
+        var rand = [];
+        Grafica(data);
+
+        alert(data);
+    });
+
+    function parseCSVData(csvFile){
+
+      //empty array for stroring the chart data
+      var data= [];
+
+      //cut CSV data into lines
+      var lines = csvFile.split("\n");
+
+
+      $.each(lines, function(lineNumber,line){
+        if(lineNumber !=0 ){//skip header line
+            var fields = line.split(",");
+            if(fields.length == 2){//skip invalid lines
+              
+              var value = parseFloat(fields[0]);
+              data.push([value])
+            }
+        }
+
+      });
+
+      //reverse arry since Higcharts expects the data to be sorted in ascending order
+      return data.reverse();
+
+    }
+
+
+
+
+
+
 });
 
 function Grafica(points, random){
@@ -177,3 +221,6 @@ function Grafica(points, random){
       });
     }
   
+
+
+
