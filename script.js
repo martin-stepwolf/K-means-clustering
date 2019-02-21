@@ -1,10 +1,12 @@
-﻿var points = [['10','20','#ff0000'],['10','20','#00ff00'],['10','20','#0000ff'],['10','20','#ffff00']];
+﻿var points = [];
 function Add_point(){
-    points.push([$("#value-x").val() ,$("#value-y").val() , $("#value-color").val()])
+    points.push([parseInt($("#value-x").val()) ,parseInt($("#value-y").val())]);
+    Grafica(points);
 console.log(points);
 $("#texto").text(points);    
 }
 $(document).ready(function(){
+    Grafica();
     $("#value-x").val("0");
     $("#value-y").val("0");
 });
