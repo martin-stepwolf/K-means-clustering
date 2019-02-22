@@ -224,7 +224,7 @@ function cont_array()
 		else
 		{
 			alert("False"+random.slice()+"..."+random_ant.slice());
-			
+			random_ant=random.slice();
 		}
 	}
 }
