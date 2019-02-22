@@ -23,8 +23,57 @@ function Add_random(){
 
 Grafica(points, random);
 
+med_asig();
 //Grafica2();
 }
+
+function med_asig() {
+  var assignments = [];
+  cluster_values = [random.length];
+  for (var i = 0; i < points.length; i++) {
+    var point = points[i];
+    var distances = [];
+
+    var cluster=0;
+    var puntos_cerca=0;
+    var menor = 300;
+    for (var j = 1; j < random.length; j++) {
+      var mean = random[j];
+      var sum = 0;
+
+      /* We calculate the Euclidean distance.
+       * √((pi-qi)^2+...+(pn-qn)^2)
+       */
+
+      for (var dim = 0; dim < point.length; dim++) {
+        // dif = (pn - qn)
+        var difference = point[dim] - mean[dim];
+
+        // dif = (dif)^2
+        difference = Math.pow(difference, 2);
+
+        // sum = (difi) + ... + (difn)
+        sum += difference;
+      }
+
+      // √sum
+      distances[j] = Math.sqrt(sum);
+      console.log("del punto ("+points[i]+") al cluster ("+random[j]+") son "+ distances[j]);
+      if(distances[j]<menor){
+        menor = distances[j];
+        puntos_cerca = points[i];
+        cluster = j;
+      }
+    }
+    console.log("el cluster "+cluster+" es mas cercano al punto "+ puntos_cerca)
+    //cluster_values.push(puntos_cerca)[(cluster-1)];
+    // After calculating all the distances from the data point to each cluster centroid,
+    // we pick the closest (smallest) distances.
+    assignments[i] = distances.indexOf(Math.min.apply(null, distances));
+  }
+//console.log(cluster_values);
+  //return assignments;
+};
 
 $(document).ready(function(){
     Grafica();
