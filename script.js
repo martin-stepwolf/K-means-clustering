@@ -334,4 +334,11 @@ function cont_array()
 		}
 	}
 }
+function ValidaCampos(){
+    
+if((parseInt($("#value-x").val())>=101) || (parseInt($("#value-y").val())>=61)){
+  alert("Invalid values. You need to add a grade less than 100 and time less than 60.");
+}else if(Add_point());
+
+}
 	
