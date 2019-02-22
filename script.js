@@ -1,5 +1,6 @@
 ﻿var points = [];
 var random = [];
+var random_ant=[];
 var cluster_values = [[[10,23],[12,60]],[[19,2],[12,43]],[[12,53],[8,5]],[[30,60],[40,25]]];//ejemplo
 var clusterColors = ['rgba(255, 0, 0, .8)','rgba(0, 255, 0, .8)','rgba(0, 0, 255, .8)','rgba(255, 255, 0, .8)','rgba(255, 0, 255, .8)',
 'rgba(0, 255, 255, .8)','rgba(0, 125, 200, .8)','rgba(255, 125, 125, .8)','rgba(125, 125, 255, .8)','rgba(255, 125, 255, .8)'];
@@ -206,3 +207,25 @@ function Grafica(points, random){
         series: Grafica_color(cluster_values.length)
       });
     }
+
+function cont_array()
+{
+	if((random_ant.slice())=="")
+	{
+		random_ant=random.slice();
+	}
+	else
+	{
+		if ((random.slice().toString())==(random_ant.slice().toString()))
+		{
+			alert("True"+random.slice()+"..."+random_ant.slice());
+			
+		}
+		else
+		{
+			alert("False"+random.slice()+"..."+random_ant.slice());
+			
+		}
+	}
+}
+	
