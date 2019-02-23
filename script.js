@@ -29,7 +29,6 @@ med_asig();
 
 function med_asig() {
   var assignments = [];
-  cluster_values = [random.length];
   for (var i = 0; i < points.length; i++) {
     var point = points[i];
     var distances = [];
@@ -65,7 +64,9 @@ function med_asig() {
         cluster = j;
       }
     }
-    console.log("el cluster "+cluster+" es mas cercano al punto "+ puntos_cerca)
+    console.log("el cluster "+cluster+" es mas cercano al punto "+ puntos_cerca);
+    console.log("---------");
+
     //cluster_values.push(puntos_cerca)[(cluster-1)];
     // After calculating all the distances from the data point to each cluster centroid,
     // we pick the closest (smallest) distances.
