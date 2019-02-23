@@ -1,4 +1,16 @@
-﻿var points = [[0,0],[100,60],[25,15],[75,45],[50,30]];
+﻿$(document).ready(function(){
+  Grafica();
+  $("#value-x").val("0");
+  $("#value-y").val("0");
+
+ $.get('Quiz 1 grades.csv', function(csvFile){
+      points= parseCSVData(csvFile);
+      var rand = [];
+      Grafica();
+  });
+});
+
+var points = [[0,0],[100,60],[25,15],[75,45],[50,30]];
 var random = [];
 var random_ant=[];
 var cluster_values = [];
@@ -22,19 +34,6 @@ med_asig();
 Grafica2();
 }
 
-$(document).ready(function(){
-    Grafica();
-    $("#value-x").val("0");
-    $("#value-y").val("0");
-
-   $.get('Quiz 1 grades.csv', function(csvFile){
-        points= parseCSVData(csvFile);
-        var rand = [];
-        Grafica();
-    });
-
-});
-
 function cont_array()
 {
 	if((random_ant.slice())=="")
@@ -54,6 +53,7 @@ function cont_array()
 		}
 	}
 }
+
 function ValidaCampos(){
 if((parseInt($("#value-x").val())>=101) || (parseInt($("#value-y").val())>=61)){
   alert("Invalid values. You need to add a grade less than 100 and time less than 60.");

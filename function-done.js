@@ -56,14 +56,13 @@ function Grafica(){
           }
         },
         series: [{
+            name: 'Clusters',
+            color: 'rgba(0, 0, 0, 1)',
+            data: random
+          },{
           name: 'Points',
-          color: 'rgba(125, 125, 125, .8)',
+          color: 'rgba(125, 125, 125, 1)',
           data: points
-        },
-        {
-          name: 'Clusters',
-          color: 'rgba(0, 0, 0, 1)',
-          data: random
         },]
       });
     }
@@ -174,15 +173,15 @@ function Grafica2(){
           
                 // √sum
                 distances[j] = Math.sqrt(sum);
-                console.log("del punto ("+points[i]+") al cluster ("+random[j]+") son "+ distances[j]);
+                //console.log("del punto ("+points[i]+") al cluster ("+random[j]+") son "+ distances[j]);
                 if(distances[j]<menor){
                   menor = distances[j];
                   puntos_cerca = points[i];
                   cluster = j;
                 }
               }
-              console.log("el cluster "+cluster+" es mas cercano al punto "+ puntos_cerca);
-              console.log("---------");
+              //console.log("el cluster "+cluster+" es mas cercano al punto "+ puntos_cerca);
+              //console.log("---------");
             if(cluster == 1)
             c1.push(puntos_cerca);
             if(cluster == 2)
@@ -234,13 +233,13 @@ function Grafica2(){
           function Grafica_color(clusters){
             var pointsColor= []
             pointsColor.push({
-              name: 'Clusters-points',
-              color: 'rgba(0, 0, 0, 1)',
+              name: 'Clusters',
+              color: 'rgba(0, 0, 0, .4)',
               data: random
             });
             for(var a=0; a<clusters ;a++){
             pointsColor.push({
-              name: "Cluster " +(a+1),
+              name: "Group " +(a+1),
               color: clusterColors[a],
               data: cluster_values[a],
             });
