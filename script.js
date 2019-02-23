@@ -1,7 +1,7 @@
 ﻿var points = [];
 var random = [];
 var random_ant=[];
-var cluster_values = [[[10,23],[12,60]],[[19,2],[12,43]],[[12,53],[8,5]],[[30,60],[40,25]]];//ejemplo
+var cluster_values = [];
 var clusterColors = ['rgba(255, 0, 0, .8)','rgba(0, 255, 0, .8)','rgba(0, 0, 255, .8)','rgba(255, 255, 0, .8)','rgba(255, 0, 255, .8)',
 'rgba(0, 255, 255, .8)','rgba(0, 125, 200, .8)','rgba(255, 125, 125, .8)','rgba(125, 125, 255, .8)','rgba(255, 125, 255, .8)'];
 clusterColors.sort(function() {return Math.random() - 0.5});
@@ -21,13 +21,28 @@ function Add_random(){
 	random.push([Math.round(Math.random()*100) ,Math.round(Math.random()*60)]);
 	}
 
-Grafica(points, random);
+//Grafica(points, random);
 
 med_asig();
-//Grafica2();
+Grafica2();
 }
 
 function med_asig() {
+  var c1=[];
+  var c2=[];
+  var c3=[];
+  var c4=[];
+  var c5=[];
+  var c6=[];
+  var c7=[];
+  var c8=[];
+  var c9=[];
+  var c10=[];
+  
+  cluster_values = [];
+  for (var clus = 1; clus < random.length; clus++){
+    cluster_values.push([],);
+  }
   var assignments = [];
   for (var i = 0; i < points.length; i++) {
     var point = points[i];
@@ -66,12 +81,53 @@ function med_asig() {
     }
     console.log("el cluster "+cluster+" es mas cercano al punto "+ puntos_cerca);
     console.log("---------");
+  if(cluster == 1)
+  c1.push(puntos_cerca);
+  if(cluster == 2)
+  c2.push(puntos_cerca);
+  if(cluster == 3)
+  c3.push(puntos_cerca);
+  if(cluster == 4)
+  c4.push(puntos_cerca);
+  if(cluster == 5)
+  c5.push(puntos_cerca);
+  if(cluster == 6)
+  c6.push(puntos_cerca);
+  if(cluster == 7)
+  c7.push(puntos_cerca);
+  if(cluster == 8)
+  c8.push(puntos_cerca);
+  if(cluster == 9)
+  c9.push(puntos_cerca);
+  if(cluster == 10)
+  c10.push(puntos_cerca);
 
     //cluster_values.push(puntos_cerca)[(cluster-1)];
     // After calculating all the distances from the data point to each cluster centroid,
     // we pick the closest (smallest) distances.
     assignments[i] = distances.indexOf(Math.min.apply(null, distances));
   }
+  if(random.length>1)
+cluster_values[0] = c1;
+if(random.length>2)
+cluster_values[1] = c2;
+if(random.length>3)
+cluster_values[2] = c3;
+if(random.length>4)
+cluster_values[3] = c4;
+if(random.length>5)
+cluster_values[4] = c5;
+if(random.length>6)
+cluster_values[5] = c6;
+if(random.length>7)
+cluster_values[6] = c7;
+if(random.length>8)
+cluster_values[7] = c8;
+if(random.length>9)
+cluster_values[8] = c9;
+if(random.length>10)
+cluster_values[9] = c10;
+
 //console.log(cluster_values);
   //return assignments;
 };
