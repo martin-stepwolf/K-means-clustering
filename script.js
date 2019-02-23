@@ -29,9 +29,13 @@ function Add_random(){
     random = [rando];
 	for(var i = 0; i<rando; i++){
 	random.push([Math.round(Math.random()*100) ,Math.round(Math.random()*60)]);
-	}
-med_asig();
-Grafica2();
+  }
+  Grafica();
+}
+
+function Do_algoritm(){
+  med_asig();
+  Grafica2();  
 }
 
 function cont_array()
@@ -61,10 +65,11 @@ if((parseInt($("#value-x").val())>=101) || (parseInt($("#value-y").val())>=61)){
 }
 
 function Promedio(){
+  console.log(cluster_values.length);
   for(var j=0; j<random.length; j++){
   var x=0;
   var y=0;
-  for(var i=0; i<cluster_values[j].length; i++){
+  for(var i=0; i<cluster_values.length; i++){
     x=x+cluster_values[j][i][0];
     y=y+cluster_values[j][i][1];
   }
