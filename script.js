@@ -1,7 +1,7 @@
 ﻿var points = [];
 var random = [];
 var random_ant=[];
-var cluster_values = [[[40,30]],[[50,10],[40,10],[20,50]],[[30,10],[40,50],[30,15],[30,15],[30,15],]];
+var cluster_values = [];
 var clusterColors = ['rgba(255, 0, 0, .8)','rgba(0, 255, 0, .8)','rgba(0, 0, 255, .8)','rgba(255, 255, 0, .8)','rgba(255, 0, 255, .8)',
 'rgba(0, 255, 255, .8)','rgba(0, 125, 200, .8)','rgba(255, 125, 125, .8)','rgba(125, 125, 255, .8)','rgba(255, 125, 255, .8)'];
 clusterColors.sort(function() {return Math.random() - 0.5});
@@ -25,24 +25,6 @@ function Add_random(){
 
 med_asig();
 Grafica2();
-function Promedio(){
-  console.log(random);
-  console.log(cluster_values);
-  for(var j=0; j<random.length; j++){
-  var x=0;
-  var y=0;
-  for(var i=0; i<cluster_values[j].length; i++){
-    x=x+cluster_values[j][i][0];
-    y=y+cluster_values[j][i][1];
-    //console.log(x+" "+y)
-  }
-
-  var xx=x/cluster_values[j].length;
-  var yy=y/cluster_values[j].length;
-console.log(xx+" "+yy)
-   random_ant[j] = [xx,yy]; 
-  }
-  console.log(random_ant);
 }
 
 function med_asig() {
