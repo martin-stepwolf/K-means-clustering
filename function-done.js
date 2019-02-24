@@ -247,22 +247,26 @@ function Grafica2(){
           return pointsColor;
           }
           function parseCSVData(csvFile){
-
-            //empty array for stroring the chart data
-            var data= [];
-      
-            //cut CSV data into lines
+            var data= [[],[]];
             var lines = csvFile.split("\n");
-      
+
             $.each(lines, function(lineNumber,line){
-              if(lineNumber !=0 ){//skip header line
+              // if(lineNumber ===1 ){//skip header line
                   var fields = line.split(",");
                   if(fields.length == 2){//skip invalid lines
-                    
-                    var value = parseFloat(fields[0]);
-                    data.unshift([value])
+                    for(var i = 0; i<fields.length; i++){
+                      for(var j = 0; j<i; j++){
+                        var value = parseFloat(fields[i]);
+                        var value1 = parseFloat(fields[j]);
+                        data.unshift([value1,value]);
+                        console.log(value1,value);
+                      }
+                    }
+
+                    // var value = parseFloat(fields[0]);
+                    // var value1 = parseFloat(fields[1]);
                   }
-              }
+              // }
             });
             //reverse arry since Higcharts expects the data to be sorted in ascending order
             return data.reverse();

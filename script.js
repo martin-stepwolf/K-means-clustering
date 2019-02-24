@@ -3,11 +3,12 @@
   $("#value-x").val("0");
   $("#value-y").val("0");
 
- $.get('Quiz 1 grades.csv', function(csvFile){
-      points= parseCSVData(csvFile);
-      var rand = [];
-      Grafica();
-  });
+ 	$.get('Quiz 1 grades.csv', function(csvFile){
+        points= parseCSVData(csvFile);
+        //console.log(points);
+        var rand = [];
+        Grafica(points);
+    });
 });
 
 var points = [[0,0],[100,60],[25,15],[75,45],[50,30]];
