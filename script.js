@@ -35,6 +35,7 @@ function Add_random(){
 
 function Do_algoritm(){
   med_asig();
+//random = Promedio();// funcion para asignar el nuevo valor de los clusters(su promedio)
   Grafica2();  
 }
 
@@ -65,16 +66,13 @@ if((parseInt($("#value-x").val())>=101) || (parseInt($("#value-y").val())>=61)){
 }
 
 function Promedio(){
-  console.log(cluster_values.length);
-  for(var j=0; j<random.length; j++){
-  var x=0;
-  var y=0;
-  for(var i=0; i<cluster_values.length; i++){
-    x=x+cluster_values[j][i][0];
-    y=y+cluster_values[j][i][1];
-  }
-  var xx=x/cluster_values[j].length;
-  var yy=y/cluster_values[j].length;
-  random_ant[j] = [xx,yy]; 
-  }
+var promedio_random =[];
+
+// sacar el promedio de las distancias del cada cluster con sus puntos asignados
+// Despues de sacar el promedio sobreescribir los valores nuevos a random
+// El programa hecho con chuy no funciona, ya que se trata del promedio de las distancias de cada cluster con sus puntos
+// no el promedio de los puntos de cada cluster
+// se puede reciclar codigo hecho por chuy que se puede ver desde git
+
+  return  promedio_random;
 }
