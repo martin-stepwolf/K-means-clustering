@@ -33,12 +33,11 @@ function Add_random(){
   }
   Grafica();
 }
-
 function Do_algoritm(){
-  med_asig();
-  Promedio();
-//random = Promedio();// funcion para asignar el nuevo valor de los clusters(su promedio)
-  Grafica2();  
+  window.setTimeout("med_asig();", 750);
+  window.setTimeout("Grafica2();", 1500);
+  window.setTimeout("  Promedio();", 2250);
+  window.setTimeout("Grafica2();", 3000);
 }
 
 function cont_array()
