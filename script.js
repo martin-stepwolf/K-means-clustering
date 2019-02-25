@@ -27,7 +27,7 @@ function Add_point(){
 function Add_random(){
   var rando = $("#value-point").val();
     var that = 0;
-    random = [rando];
+    random = [];
 	for(var i = 0; i<rando; i++){
 	random.push([Math.round(Math.random()*100) ,Math.round(Math.random()*60)]);
   }

@@ -141,7 +141,7 @@ function Grafica2(){
             var c10=[];
             
             cluster_values = [];
-            for (var clus = 1; clus < random.length; clus++){
+            for (var clus = 0; clus < random.length; clus++){
               cluster_values.push([],);
             }
             var assignments = [];
@@ -152,7 +152,7 @@ function Grafica2(){
               var cluster=0;
               var puntos_cerca=0;
               var menor = 300;
-              for (var j = 1; j < random.length; j++) {
+              for (var j = 0; j < random.length; j++) {
                 var mean = random[j];
                 var sum = 0;
           
@@ -182,25 +182,25 @@ function Grafica2(){
               }
               //console.log("el cluster "+cluster+" es mas cercano al punto "+ puntos_cerca);
               //console.log("---------");
-            if(cluster == 1)
+            if(cluster == 0)
             c1.push(puntos_cerca);
-            if(cluster == 2)
+            if(cluster == 1)
             c2.push(puntos_cerca);
-            if(cluster == 3)
+            if(cluster == 2)
             c3.push(puntos_cerca);
-            if(cluster == 4)
+            if(cluster == 3)
             c4.push(puntos_cerca);
-            if(cluster == 5)
+            if(cluster == 4)
             c5.push(puntos_cerca);
-            if(cluster == 6)
+            if(cluster == 5)
             c6.push(puntos_cerca);
-            if(cluster == 7)
+            if(cluster == 6)
             c7.push(puntos_cerca);
-            if(cluster == 8)
+            if(cluster == 7)
             c8.push(puntos_cerca);
-            if(cluster == 9)
+            if(cluster == 8)
             c9.push(puntos_cerca);
-            if(cluster == 10)
+            if(cluster == 9)
             c10.push(puntos_cerca);
           
               //cluster_values.push(puntos_cerca)[(cluster-1)];
@@ -208,25 +208,25 @@ function Grafica2(){
               // we pick the closest (smallest) distances.
               assignments[i] = distances.indexOf(Math.min.apply(null, distances));
             }
-            if(random.length>1)
+            if(random.length>0)
           cluster_values[0] = c1;
-          if(random.length>2)
+          if(random.length>1)
           cluster_values[1] = c2;
-          if(random.length>3)
+          if(random.length>2)
           cluster_values[2] = c3;
-          if(random.length>4)
+          if(random.length>3)
           cluster_values[3] = c4;
-          if(random.length>5)
+          if(random.length>4)
           cluster_values[4] = c5;
-          if(random.length>6)
+          if(random.length>5)
           cluster_values[5] = c6;
-          if(random.length>7)
+          if(random.length>6)
           cluster_values[6] = c7;
-          if(random.length>8)
+          if(random.length>7)
           cluster_values[7] = c8;
-          if(random.length>9)
+          if(random.length>8)
           cluster_values[8] = c9;
-          if(random.length>10)
+          if(random.length>9)
           cluster_values[9] = c10;
           };
 
