@@ -80,13 +80,9 @@ for(var i=0; i<cluster_values[j].length; i++){
 if(cluster_values[j].length!=0){
 var xx=x/cluster_values[j].length;
 var yy=y/cluster_values[j].length;
-random_ant[j] = [xx,yy];
-}
-else{
-  random_ant[j] = random[j];
+random[j] = [xx,yy];
 }
 x=0;
 y=0;
 }
-random = random_ant;
 }
