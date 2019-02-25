@@ -82,6 +82,9 @@ var xx=x/cluster_values[j].length;
 var yy=y/cluster_values[j].length;
 random[j] = [xx,yy];
 }
+else{
+random[j] = [Math.round(Math.random()*100) ,Math.round(Math.random()*60)];
+}
 x=0;
 y=0;
 }
