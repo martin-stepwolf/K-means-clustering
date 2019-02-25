@@ -36,8 +36,8 @@
                 <div class="col-12"> 
                                 Grade<input type="number" min="0" max="100" step="5"  class="form-control" id="value-x">
                                 Time<input type="number" min="0" max="60" step="5" class="form-control" id="value-y">
-                                Select the color:<input type="color" id="value-color">
                                 <button type="submit" class="btnX icono" onclick="ValidaCampos()"  href=''>Add point</button>
+                                <center>
                                 Points number<select id="value-point">
                                         <option>2</option>
                                         <option>3</option>
@@ -50,7 +50,8 @@
                                         <option>10</option>
                                 </select>
                         <button class="btnY" onclick="Add_random()">Add Clusters</button>
-                        <button class="btnY" onclick="Do_algoritm()">Do algorithm</button><button class="btnY" data-toggle="modal" data-target="#miModal">Modal</button><button class="btnY" onclick="cont_array()">Ver contenido Points</button>
+                    	</center>
+                        <button class="btnY" onclick="Do_algoritm()">Do algorithm</button><button class="btnY" onclick="cont_array()">Ver contenido Points</button>
 						</div>
         </div>
 <div id="grafica" style="min-width: 310px; height: 400px; max-width: 800px; margin: 0 auto"></div>
