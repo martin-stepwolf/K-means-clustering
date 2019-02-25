@@ -234,7 +234,7 @@ function Grafica2(){
             var pointsColor= []
             pointsColor.push({
               name: 'Clusters',
-              color: 'rgba(0, 0, 0, .4)',
+              color: 'rgba(0, 0, 0, .9)',
               data: random
             });
             for(var a=0; a<clusters ;a++){
