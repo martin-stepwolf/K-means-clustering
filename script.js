@@ -35,14 +35,14 @@ function Add_random(){
   Grafica();
 }
 function Do_algoritm(){
-	console.log(random_ant);
+	console.log(random_ant);			
+	if((cont_array())==true){
+		console.log("valor de random igual");
+		clearTimeout(myVar);
+	}
 			med_asig();
 			Promedio();
-			Grafica2();			
-		if((cont_array())==true){
-			console.log("valor de random igual");
-			clearTimeout(myVar);
-		}
+			Grafica2();
 }
 
 function cont_array()
