@@ -14,6 +14,7 @@
 var points = [[0,0],[100,60],[25,15],[75,45],[50,30]];
 var random = [];
 var random_ant=[];
+var cont = 0;
 var cluster_values = [];
 var clusterColors = ['rgba(255, 0, 0, .6)','rgba(0, 255, 0, .6)','rgba(0, 0, 255, .6)','rgba(255, 255, 0, .6)','rgba(255, 0, 255, .6)',
 'rgba(0, 255, 255, .6)','rgba(0, 125, 200, .6)','rgba(255, 125, 125, .6)','rgba(125, 125, 255, .6)','rgba(255, 125, 255, .6)'];
@@ -34,10 +35,15 @@ function Add_random(){
   Grafica();
 }
 function Do_algoritm(){
-  window.setTimeout("med_asig();", 750);
-  window.setTimeout("Grafica2();", 1500);
-  window.setTimeout("  Promedio();", 2250);
-  window.setTimeout("Grafica2();", 3000);
+	do {
+		window.setTimeout("med_asig();", 750);
+		window.setTimeout("Grafica2();", 1500);
+		window.setTimeout("Promedio();", 2250);
+		window.setTimeout("Grafica2();", 3000);
+		cont=cont+1;
+	} while ((cont_array())==false);
+	alert("Cont: "+cont);
+	cont=0;
 }
 
 function cont_array()
@@ -45,17 +51,16 @@ function cont_array()
 	if((random_ant.slice())=="")
 	{
 		random_ant=random.slice();
+		return true;
 	}
 	else
 	{
-		if ((random.slice().toString())==(random_ant.slice().toString()))
-		{
-			alert("True"+random.slice()+"..."+random_ant.slice());			
+		if ((random.slice().toString())==(random_ant.slice().toString())) {
+			return true;
 		}
-		else
-		{
-			alert("False"+random.slice()+"..."+random_ant.slice());
+		else {
 			random_ant=random.slice();
+			return false;
 		}
 	}
 }
@@ -67,24 +72,24 @@ if((parseInt($("#value-x").val())>=101) || (parseInt($("#value-y").val())>=61)){
 }
 
 function Promedio(){
-var x=0;
-var y=0;
-var xx=0;
-var yy=0;
-for(var j=0; j<random.length; j++){
-for(var i=0; i<cluster_values[j].length; i++){
-  x=x+cluster_values[j][i][0];
-  y=y+cluster_values[j][i][1];
-}
-if(cluster_values[j].length!=0){
-var xx=x/cluster_values[j].length;
-var yy=y/cluster_values[j].length;
-random[j] = [xx,yy];
-}
-else{
-random[j] = [Math.round(Math.random()*100) ,Math.round(Math.random()*60)];
-}
-x=0;
-y=0;
-}
+	var x=0;
+	var y=0;
+	var xx=0;
+	var yy=0;
+	for(var j=0; j<random.length; j++){
+		for(var i=0; i<cluster_values[j].length; i++){
+			x=x+cluster_values[j][i][0];
+			y=y+cluster_values[j][i][1];
+		}
+		if(cluster_values[j].length!=0){
+			var xx=x/cluster_values[j].length;
+			var yy=y/cluster_values[j].length;
+			random[j] = [xx,yy];
+		}
+		else{
+			random[j] = [Math.round(Math.random()*100) ,Math.round(Math.random()*60)];
+		}
+		x=0;
+		y=0;
+	}
 }
