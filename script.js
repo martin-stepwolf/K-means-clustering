@@ -35,15 +35,20 @@ function Add_random(){
   Grafica();
 }
 function Do_algoritm(){
-	do {
-		window.setTimeout("med_asig();", 750);
-		window.setTimeout("Grafica2();", 1500);
-		window.setTimeout("Promedio();", 2250);
-		window.setTimeout("Grafica2();", 3000);
-		cont=cont+1;
-	} while ((cont_array())==false);
-	alert("Cont: "+cont);
-	cont=0;
+	if(random.slice()==""){
+		alert("Por favor, agegue los clusters");
+	}
+	else {
+		do {
+			window.setTimeout("med_asig();", 750);
+			window.setTimeout("Promedio();", 1250);
+			window.setTimeout("Grafica2();", 1500);
+			
+			cont=cont+1;
+		} while ((cont_array())==false);
+		alert("Cont: "+cont);
+		cont=0;
+	}
 }
 
 function cont_array()
