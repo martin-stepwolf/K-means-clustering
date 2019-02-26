@@ -12,36 +12,12 @@
     <script src="script.js"></script>    
     <script src="frameworks/bootstrap.js"></script> 
     <script src="frameworks/highcharts.js"></script>
-    <div class="page-header">
-        <h1></h1>
-    </div>
 </head>
-<body>	
-	<meta charset="utf-8">
-        <div class="modal fade" id="miModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document" align="center">
-                        <div class="modal-content">
-                                <div class="modal-header" align="center" style="background-color: #fc5d5d"  ><font face="Anton" color=white size="4px"> Information!</font>       
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                        </button>
-                                </div >
-                        <div class="container">
-                                <label id="top"></label>
-                        </div>
-                </div>
-        </div>
-        </div>
-        <div class="esp jumbotron row">
+<body>
+        <div class="esp alert row">
                 <div class="col-12"> 
-                				<center>
-                                <input type="text" value="Grade" disabled="true" style="width: 4%">       <input type="text" value="Time" disabled="true" style="width: 4%">
-								</center>
-								<center>
-                                <input type="number" min="0" max="100" step="5" style="width:48%" id="value-x"> <input type="number" min="0" max="60" step="5" style="width: 48%" id="value-y">
-                                </center>
-                                <center>
-                                <button type="submit" class="btnX icono" onclick="ValidaCampos()" style="width: 45%" href=''>Add point</button>
+                		Grade <input type="number" min="0" max="100" step="5" style="width:20%" id="value-x"> Time<input type="number" min="0" max="60" step="5" style="width: 20%" id="value-y">
+                                <button type="submit" class="btnX icono" onclick="ValidaCampos()" style="width: 40%" href=''>Add point</button>
                                 Points number<select id="value-point">
                                         <option>2</option>
                                         <option>3</option>
@@ -53,9 +29,8 @@
                                         <option>9</option>
                                         <option>10</option>
                                 </select>
-                        <button class="btnY" style="width: 42%" onclick="Add_random()">Add Clusters</button>
-                        </center>
-                        <button class="btnY" onclick="Do_algoritm()">Do algorithm</button><button class="btnY" onclick="cont_array()">Ver contenido Points</button>
+                        <button class="btnY" style="width: 40%" onclick="Add_random()">Add Clusters</button>
+                        <button class="btnY" style="width: 30%" onclick="myVar = setInterval('Do_algoritm()', 3000)">Do algorithm</button>
 						</div>
         </div>
 <div id="grafica" style="min-width: 310px; height: 400px; max-width: 800px; margin: 0 auto"></div>

@@ -35,20 +35,14 @@ function Add_random(){
   Grafica();
 }
 function Do_algoritm(){
-	if(random.slice()==""){
-		alert("Por favor, agegue los clusters");
-	}
-	else {
-		do {
-			window.setTimeout("med_asig();", 750);
-			window.setTimeout("Promedio();", 1250);
-			window.setTimeout("Grafica2();", 1500);
-			
-			cont=cont+1;
-		} while ((cont_array())==false);
-		alert("Cont: "+cont);
-		cont=0;
-	}
+	console.log(random_ant);
+			med_asig();
+			Promedio();
+			Grafica2();			
+		if((cont_array())==true){
+			console.log("valor de random igual");
+			clearTimeout(myVar);
+		}
 }
 
 function cont_array()
