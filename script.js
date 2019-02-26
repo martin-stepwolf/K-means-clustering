@@ -19,6 +19,7 @@ var cluster_values = [];
 var clusterColors = ['rgba(255, 0, 0, .6)','rgba(0, 255, 0, .6)','rgba(0, 0, 255, .6)','rgba(255, 255, 0, .6)','rgba(255, 0, 255, .6)',
 'rgba(0, 255, 255, .6)','rgba(0, 125, 200, .6)','rgba(255, 125, 125, .6)','rgba(125, 125, 255, .6)','rgba(255, 125, 255, .6)'];
 clusterColors.sort(function() {return Math.random() - 0.5});
+var switch_Do_algoritm = true;
 
 function Add_point(){
     points.push([parseInt($("#value-x").val()) ,parseInt($("#value-y").val())]);
@@ -28,20 +29,27 @@ function Add_point(){
 function Add_random(){
   var rando = $("#value-point").val();
     var that = 0;
-    random = [];
 	for(var i = 0; i<rando; i++){
-	random.push([Math.round(Math.random()*100) ,Math.round(Math.random()*60)]);
+	random[i]=[Math.round(Math.random()*100) ,Math.round(Math.random()*60)];
   }
   Grafica();
 }
 function Do_algoritm(){
-	console.log(random_ant);			
-	if((cont_array())==true){
-		console.log("valor de random igual");
-		clearTimeout(myVar);
+	if(switch_Do_algoritm == true){
+		console.log(random_ant);			
+		med_asig();
+		switch_Do_algoritm = false;
 	}
-			med_asig();
-			Promedio();
+	else{
+		if((cont_array())==true){
+		Promedio();
+			console.log("valor de random igual");
+			clearTimeout(myVar);
+		}else{
+	Promedio();	
+}
+switch_Do_algoritm = true;
+}
 			Grafica2();
 }
 
