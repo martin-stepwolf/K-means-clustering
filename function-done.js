@@ -258,8 +258,8 @@ function Grafica2(){
                       for(var j = 0; j<i; j++){
                         var value = parseFloat(fields[i]);
                         var value1 = parseFloat(fields[j]);
-                        data.unshift([value1,value]);
-                        console.log(value1,value);
+                        data.unshift([value,value1]);
+                        console.log("Grade: "+value,"time"+value1);
                       }
                     }
 
