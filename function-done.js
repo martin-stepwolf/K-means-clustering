@@ -247,7 +247,7 @@ function Grafica2(){
           return pointsColor;
           }
           function parseCSVData(csvFile){
-            var data= [[],[]];
+            var data= [];
             var lines = csvFile.split("\n");
 
             $.each(lines, function(lineNumber,line){
